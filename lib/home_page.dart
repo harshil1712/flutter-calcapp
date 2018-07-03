@@ -41,6 +41,31 @@ class HomePageState extends State<HomePage>{
 
         });
   }
+  void mul(){
+    setState(() {
+          oper= '*';
+          if(flag==0){
+            num2 = num1;
+          }
+          else{
+            num2 = ansStr;
+          }
+          num1 = '0';
+        });
+  }
+  
+  void div(){
+    setState(() {
+          oper= '/';
+          if(flag==0){
+            num2 = num1;
+          }
+          else{
+            num2 = ansStr;
+          }
+          num1 = '0';
+        });
+  }
   void one(){
     setState(() {
           num1+="1";
@@ -122,8 +147,16 @@ class HomePageState extends State<HomePage>{
         ans = int.parse(num2)-int.parse(num1);
         flag++;        
       }
-          ansStr = "$ans";
-        });
+      else if(oper == '*'){
+        ans = int.parse(num2)*int.parse(num1);
+        flag++;        
+      }
+      else if(oper == '/'){
+        ans = int.parse(num2)~/int.parse(num1);
+        flag++;        
+      }
+      ansStr = "$ans";
+    });
   }
 
   @override
@@ -137,7 +170,7 @@ class HomePageState extends State<HomePage>{
           children: <Widget>[
             new Container(
               constraints: new BoxConstraints.expand(
-                height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 75.0,
+                height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 100.0,
               ),
               alignment: Alignment.bottomRight,
               child: new Text(
@@ -152,33 +185,41 @@ class HomePageState extends State<HomePage>{
               children: <Widget>[
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("9"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("9",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: nine,
                   )
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("8"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("8",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: eight,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("7"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("7",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: seven,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("+"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("+",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: add,
                   ),
                 )
@@ -189,33 +230,41 @@ class HomePageState extends State<HomePage>{
               children: <Widget>[
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("6"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("6",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: six,
                   )
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("5"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("5",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: five,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("4"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("4",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: four,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("-"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("-",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: sub,
                   ),
                 )
@@ -226,34 +275,42 @@ class HomePageState extends State<HomePage>{
               children: <Widget>[
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("3"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("3",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: three,
                   )
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("2"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("2",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: two,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("1"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("1",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: one,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("*"),
-                    color: Colors.grey.shade400,
-                    onPressed: (){},
+                    height: 100.0,
+                    child:new Text("*",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
+                    onPressed: mul,
                   ),
                 )
               ],
@@ -263,50 +320,45 @@ class HomePageState extends State<HomePage>{
               children: <Widget>[
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("."),
-                    color: Colors.grey.shade400,
-                    onPressed: (){},
+                    height: 100.0,
+                    child:new Text("C",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
+                    onPressed: clear,
                   )
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("0"),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("0",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed: zero,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("="),
-                    color: Colors.grey.shade400,
+                    height: 100.0,
+                    child:new Text("=",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
                     onPressed:disp,
                   ),
                 ),
                 new Expanded(
                   child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("/"),
-                    color: Colors.grey.shade400,
-                    onPressed: (){},
+                    height: 100.0,
+                    child:new Text("/",
+                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                    textColor: Colors.black,
+                    color: Colors.grey[100],
+                    onPressed: div,
                   ),
                 )
               ],
-            ),
-            new Padding(padding: new EdgeInsets.all(2.0),),
-            new Row (
-              children: <Widget>[
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 75.0,
-                    child:new Text("Clear"),
-                    color: Colors.grey.shade400,
-                    onPressed: clear,
-                  ),
-                )
-              ]
             )
           ],
         ),
