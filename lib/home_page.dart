@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget{
   @override
-  State createState() => new HomePageState();
+  State createState() =>  HomePageState();
 }
 
 class HomePageState extends State<HomePage>{
 
   var num1="0", num2="0", ansStr='0', ans=0, oper='', flag=0 ;
 
-  void clear() {
+  void _clear() {
     setState(() {
           num1="0"; num2="0"; ansStr='0'; ans=0; oper=''; flag=0 ;
         });
   }
 
-  void add(){
+  void _add(){
     setState(() {
       oper= '+';
       if(flag==0){
@@ -28,7 +28,7 @@ class HomePageState extends State<HomePage>{
 
         });
   }
-  void sub(){
+  void _sub(){
     setState(() {
       oper= '-';
       if(flag==0){
@@ -41,7 +41,7 @@ class HomePageState extends State<HomePage>{
 
         });
   }
-  void mul(){
+  void _mul(){
     setState(() {
           oper= '*';
           if(flag==0){
@@ -54,7 +54,7 @@ class HomePageState extends State<HomePage>{
         });
   }
   
-  void div(){
+  void _div(){
     setState(() {
           oper= '/';
           if(flag==0){
@@ -66,70 +66,70 @@ class HomePageState extends State<HomePage>{
           num1 = '0';
         });
   }
-  void one(){
+  void _one(){
     setState(() {
           num1+="1";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void two(){
+  void _two(){
     setState(() {
           num1+="2";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void three(){
+  void _three(){
     setState(() {
           num1+="3";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void four(){
+  void _four(){
     setState(() {
           num1+="4";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void five(){
+  void _five(){
     setState(() {
           num1+="5";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }  
-  void six(){
+  void _six(){
     setState(() {
           num1+="6";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void seven(){
+  void _seven(){
     setState(() {
           num1+="7";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void eight(){
+  void _eight(){
     setState(() {
           num1+="8";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void nine(){
+  void _nine(){
     setState(() {
           num1+="9";
           ans =int.parse(num1);
           ansStr = "$ans";
         });
   }
-  void zero(){
+  void _zero(){
     setState(() {
           num1+="0";
           ans =int.parse(num1);
@@ -137,7 +137,7 @@ class HomePageState extends State<HomePage>{
         });
   }
 
-  void disp() {
+  void _disp() {
     setState(() {
       if(oper=='+'){
         ans = int.parse(num1)+int.parse(num2);
@@ -161,208 +161,77 @@ class HomePageState extends State<HomePage>{
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Calculator"),
+    return  Scaffold(
+      appBar:  AppBar(
+        title:  Text("Calculator"),
       ),
-      body: new Container(
-        child: new Column(
+      body:  Container(
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            new Container(
-              constraints: new BoxConstraints.expand(
+             Container(
+              constraints:  BoxConstraints.expand(
                 height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 100.0,
               ),
               alignment: Alignment.bottomRight,
-              child: new Text(
+              child:  Text(
                 "$ansStr",
-                style: new TextStyle(
+                style:  TextStyle(
                   fontSize: 50.0,
                 ),
                 textAlign: TextAlign.right,
               ),
             ),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("9",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: nine,
-                  )
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("8",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: eight,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("7",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: seven,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("+",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: add,
-                  ),
-                )
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                 _button("9", _nine),
+                 _button("8", _eight),
+                 _button("7", _seven),
+                 _button("+", _add)
               ],
             ),
-            new Padding(padding: new EdgeInsets.all(2.0),),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("6",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: six,
-                  )
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("5",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: five,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("4",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: four,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("-",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: sub,
-                  ),
-                )
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                 _button("6", _six),
+                 _button("5", _five),
+                 _button("4", _four),
+                 _button("-", _sub)
               ],
             ),
-            new Padding(padding: new EdgeInsets.all(2.0),),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("3",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: three,
-                  )
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("2",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: two,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("1",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: one,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("*",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: mul,
-                  ),
-                )
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                 _button("3", _three),
+                 _button("2", _two),
+                 _button("1", _one),
+                 _button("*", _mul)
               ],
             ),
-            new Padding(padding: new EdgeInsets.all(2.0),),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("C",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: clear,
-                  )
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("0",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: zero,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("=",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed:disp,
-                  ),
-                ),
-                new Expanded(
-                  child: new MaterialButton(
-                    height: 100.0,
-                    child:new Text("/",
-                    style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                    textColor: Colors.black,
-                    color: Colors.grey[100],
-                    onPressed: div,
-                  ),
-                )
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                 _button("C", _clear),
+                 _button("0", _zero),
+                 _button("=", _disp),
+                 _button("/", _div)               
               ],
-            )
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _button (String number, Function() f){
+    return MaterialButton(
+      height: 100.0,
+      child: Text(number,
+      style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+      textColor: Colors.black,
+      color: Colors.grey[100],
+      onPressed: f,
     );
   }
 }
